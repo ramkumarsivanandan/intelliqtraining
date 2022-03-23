@@ -13,6 +13,14 @@ pipeline
         {
             agent { label 'main' }
             
+            when {
+                beforeAgent true
+                branch 'master'
+                expression {
+                    return params.CHOICE == 'testing'   
+                }
+            }
+            
             steps
             {
                 echo "Branch name: ${BRANCH_NAME}"
