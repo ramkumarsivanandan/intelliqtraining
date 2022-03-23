@@ -1,6 +1,7 @@
 pipeline
 {
-    agent { label 'main' }
+    agent { label 'linuxslave' }
+  
     stages
     {
         stage('ContinuousDownload')
