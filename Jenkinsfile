@@ -1,22 +1,16 @@
 pipeline
 {
-    agent any
+    agent { label 'linuxslave' }
     stages
     {
         stage('ContinuousDownload')
         {
             steps
             {
-                git 'https://github.com/intelliqittrainings/maven.git'
+                echo "Branch name: ${BRANCH_NAME}"
+                echo "Tag name: ${TAG_NAME}"
+                echo "Change Author: ${CHANGE_AUTHOR}"
             }
         }
-        stage('ContinuousBuild')
-        {
-            steps
-            {
-                sh 'mvn package'
-		echo "hello world"
-            }
-        } 
-    }   
+    }    
 }
