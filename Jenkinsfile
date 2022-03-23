@@ -1,6 +1,6 @@
 pipeline
 {
-    agent { label 'linuxslave' }
+    agent { label 'main' }
   
     stages
     {
