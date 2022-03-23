@@ -10,7 +10,7 @@ pipeline
             {
                 echo "Branch name: ${BRANCH_NAME}"
                 echo "Tag name: ${env.TAG_NAME}"
-                echo "Change Author: ${CHANGE_AUTHOR}"
+                echo "Change Author: ${env.CHANGE_AUTHOR}"
             }
         }
     }    
