@@ -2,6 +2,10 @@ pipeline
 {
     agent none
     
+    environment {
+        DEPLOY_TO="PRODUCTION"        
+    }
+    
     parameters {
         string(name: 'STAGE_NAME', defaultValue: '', description: 'Where should be install the value?')
         choice(name: 'CHOICE', choices: ['defect fix', 'testing', 'production'], description: 'what stage are you performing')
@@ -28,6 +32,7 @@ pipeline
                 echo "Change Author: ${env.CHANGE_AUTHOR}"
                 echo "STAGE_NAME: ${params.STAGE_NAME}"
                 echo "CHOICE: ${params.CHOICE}"
+                echo "DEPLOY_TO: ${env.DEPLOY_TO}"
             }
         }
     }    
