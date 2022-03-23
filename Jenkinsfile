@@ -1,13 +1,15 @@
 pipeline
 {
-    agent any
+    agent { label 'main' }
     stages
     {
         stage('ContinuousDownload')
         {
             steps
             {
-                echo "Inside Master Pipeline"
+                echo "Branch name: ${BRANCH_NAME}"
+                echo "Tag name: ${TAG_NAME}"
+                echo "Change Author: ${CHANGE_AUTHOR}"
             }
         }
     }    
