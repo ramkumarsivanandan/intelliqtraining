@@ -20,9 +20,13 @@ pipeline
             when {
                 beforeAgent true
                 branch 'master'
-                expression {
-                    return params.CHOICE == 'testing'   
+                anyOf {
+                    expression {
+                        return params.CHOICE == 'testing'   
+                    }
+                    environment name:'DEPLOY_TO', value: 'PRODUCTION'
                 }
+
             }
             
             steps
