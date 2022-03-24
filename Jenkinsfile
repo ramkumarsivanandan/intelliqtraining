@@ -20,9 +20,9 @@ pipeline
             when {
                 beforeAgent true
                 branch 'master'
-                anyOf {
+                allOf {
                     expression {
-                        return params.CHOICE == 'testing'   
+                        return params.CHOICE == 'testing' && params.STAGE_NAME == 'TESTING'   
                     }
                     environment name:'DEPLOY_TO', value: 'PRODUCTION'
                 }
